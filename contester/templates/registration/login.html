@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+     {% load static %}
+     <link href="{% static 'contester/css/auth.css' %}" rel="stylesheet">
+    <script src="{% static 'contester/js/auth.js'%}"></script>
+</head>
+<body>
+
+    {% if form.errors %}
+    <p>There's something wrong with what you entered!</p>
+    {% endif %}
+
+    {% if next %}
+    <p>Hey, you can't access that page.</p>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+    <center><h2>seems like you are already loged in as "{{ user.username }}", <a href="{% url 'contester:homepage' %}">continue </a>  or <a href="http://127.0.0.1:8000/logout/"> logout</a> ?</h2>
+    </center>
+    {% else %}
+
+
+    <div class="form">
+    <div class="tab-content">
+     <div id="login">
+      <h1>Welcome!</h1>
+
+
+      <form action="{% url 'login' %}" method="post">
+
+        {% csrf_token %}
+        <div class="field-wrap">
+          <label class="text">
+            Username<span class="req"></span>
+          </label>   <br><br>
+           <input type="username" name="username" required autocomplete="off" />
+        </div>
+
+        <div class="field-wrap">
+          <label class="text">
+            Password<span class="req"></span>
+          </label>   <br><br>
+            <input type="password" name="password" required autocomplete="off" />
+
+
+        </div>
+
+        <button class="button button-block" />Log In </button>
+
+      </form>
+         <br>
+         <form action="{% url 'contester:register' %}" method="get">
+             <button class="button button-block" />Registration </button>
+         </form>
+
+    </div>
+</div>
+</div>
+
+{##}
+{#    <form method="post" ">#}
+{#        {% csrf_token %}#}
+{##}
+{#        <p>Username: </p>#}
+{#        <p>Password: </p>#}
+{##}
+{#        <p></p>#}
+{#        <input type="hidden" name="next" value="{{ next }}">#}
+{#    </form>#}
+
+ {% endif %}
+</body>
+</html>

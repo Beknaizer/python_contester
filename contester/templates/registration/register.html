@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+
+  {% load static %}
+     <link href="{% static 'contester/css/auth.css' %}" rel="stylesheet">
+    <script src="{% static 'contester/js/auth.js'%}"></script>
+
+<div class="form">
+
+    <div class="tab-content">
+    <div id="signup">
+      <h1>Register</h1>
+      <form action="{% url 'contester:register' %}" method="post">
+          {% csrf_token %}
+        <div class="field-wrap">
+          <label>
+            Username<span class="req">*</span>
+          </label>
+               <br><br>
+          <input type="text" name="username" required autocomplete="off" />
+        </div>
+
+
+        <div class="field-wrap">
+          <label>
+            Password<span class="req">*Minimum 6 characters!</span>
+          </label>
+               <br><br>
+          <input type="password" name="password1" required autocomplete="off" />
+        </div>
+
+        <div class="field-wrap">
+           <label>
+            Password Confirmition<span class="req"></span>
+          </label>
+            <br><br>
+          <input type="password" name="password2" required autocomplete="off" />
+        </div>
+        <button type="submit" class="button button-block" />Register</button>
+
+      </form>
+        <br>
+
+          <form action="{% url 'login' %}" method="get">
+             <button class="button button-block" />Login</button>
+         </form>
+
+    </div>
+    </div>
+</div>
+
+
+
+
+{#    <h1>Registration Page!</h1>#}
+{#    <form method="post" action="{% url 'register' %}">#}
+{#        {% csrf_token %}#}
+{##}
+{#        {% if form.errors %}#}
+{#        <p>There are errors in the form!</p>#}
+{#        {% endif %}#}
+{##}
+{#        {{ form }}#}
+{##}
+{#        <input type="submit" value="Register">#}
+{#    </form>#}
+</body>
+</html>

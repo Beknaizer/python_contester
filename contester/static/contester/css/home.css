@@ -1,0 +1,43 @@
+
+body{
+    background-image:url("../img/back.jpg");
+    background-size:100% ;
+    color: white;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.welcome{
+    font-size: 3.5em;
+}
+
+.logout{
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.logout_img{
+     width: 40px;
+    height: 40px;
+}
+
+.row{
+    width: 90%;
+    height: 5%;
+    border: 2px white solid;
+    border-radius: 25px;
+    margin-top: 10px;
+}
+
+.row:hover{
+
+    background-color:white;
+    border:2px black solid;
+    color:black;
+    transition-duration: 1s;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}

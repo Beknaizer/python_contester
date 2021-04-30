@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pContester</title>
+    {% load static %}
+    <link href="{% static 'contester/css/home.css' %}" rel="stylesheet">
+</head>
+<body>
+<center>
+    <label class='welcome'>Welcome {{ user.username }}</label>
+    <div class="logout">
+        <a href="{% url 'logout' %}"><img class="logout_img" src="{% static 'contester/img/logout.png' %}"></a>
+    </div>
+
+    {% if tasks %}
+    <!-- thymeleaf -->
+    {% for task in tasks %}
+    <a href="{% url 'contester:getTaskById' task.id %}"><div class="row">
+{#        <a href="{% url 'news:get_article_by_id' article.id%}">#}
+{#            <img class="img-responsive" src="{% static 'news/imgs/1.jpg'%}" alt="">#}
+{#        </a>#}
+        <h3>
+            <p>{{task.task_title}}</p>
+        </h3>
+{#        <p>{{article.article_text|truncatewords:10}}</p>#}
+    </div></a>
+    {% endfor %}
+    {% else %}
+      <p> "No available tasks" </p>
+    {% endif %}
+
+
+</center>
+</body>
+</html>

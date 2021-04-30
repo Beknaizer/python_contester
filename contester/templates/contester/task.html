@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+     <link href="{% static 'contester/css/home.css' %}" rel="stylesheet">
+</head>
+<body>
+
+    {% if task %}
+        <center><h2>{{ task.task_title }}</h2></center>
+
+        <p>{{ task.task_definition }}</p>
+    {% endif %}
+
+</body>
+</html>
